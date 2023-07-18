@@ -7,9 +7,34 @@ const sequelize = require('../config/connection');
 class Product extends Model {}
 
 // set up fields and rules for Product model
-Product.init(
-  {
+Product.init({
     // define columns
+  id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
+  },
+  product_name: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  price: {
+    type: DataTypes.DECIMAL (10, 2),
+    allowNull: false,
+  },
+  stock: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+  },
+  category_id: {
+    type: DataTypes.INTEGER,
+    allowNull: true,
+    references: {
+        model: 'category',
+        key: 'id'
+    }
+  }
   },
   {
     sequelize,
@@ -21,3 +46,12 @@ Product.init(
 );
 
 module.exports = Product;
+
+/*
+{
+  product_name: 'Plain T-Shirt',
+  price: 14.99,
+  stock: 14,
+  category_id: 1,
+}
+*/
