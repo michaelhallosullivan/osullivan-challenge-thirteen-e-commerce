@@ -10,11 +10,11 @@ Tag.init({
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
-      autoIncrement: true,
+      autoIncrement: true
   },
   tag_name: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
   }
   },
   {
@@ -22,7 +22,7 @@ Tag.init({
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'tag',
+    modelName: 'tag'
   }
 );
 
